@@ -1,10 +1,11 @@
-import { autoInjectable } from "tsyringe";
+import { autoInjectable, singleton } from "tsyringe";
 import HttpServer from "./servers/HttpServer";
 import logger from "./shared/Logger";
 import Runnable from "./shared/Runnable";
 
 const log = logger.child({layer: 'Application'});
 
+@singleton()
 @autoInjectable()
 export default class Application implements Runnable {
     servers: Record<string, Runnable>;

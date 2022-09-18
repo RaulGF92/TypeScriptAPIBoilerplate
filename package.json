@@ -8,8 +8,9 @@
     "dev-start": "npm run build && npm run start",
     "build": "tsoa spec-and-routes && tsc",
     "generate-routes": "tsoa routes",
+    "sync-routes": "tsoa spec-and-routes",
     "test:unit": "jest",
-    "test:integration": "jest --config ./test/integration/jest-e2e.json",
+    "test:integration": "npm run sync-routes && jest --config ./test/integration/jest-e2e.json",
     "lint": "eslint --ext=.ts src test",
     "lint-fix": "eslint --ext=.ts src test --fix"
   },

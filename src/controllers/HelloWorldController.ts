@@ -8,7 +8,7 @@ export type HelloWorldDto = {
     msg: string
 }
 
-@Route("hello")
+@Route("hello-world")
 export class HelloWorldController extends Controller {
 
     @Get()

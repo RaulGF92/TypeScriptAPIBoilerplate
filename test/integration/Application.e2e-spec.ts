@@ -18,10 +18,12 @@ describe('application', () => {
     });
 
     test('given a API client we need to know if server is alive', async () => {
-        await ApplicationTestLauncher
+        const response = await ApplicationTestLauncher
         .request.get('/hello-world')
         .expect(200)
         .expect('Content-Type', /json/);
+
+        expect(response.body).toEqual({ msg: "Hello World"});
     });
     
 });

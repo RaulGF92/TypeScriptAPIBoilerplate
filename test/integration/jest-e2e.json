@@ -4,8 +4,7 @@
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
   "transform": {
-    "^.+\\.(t|j)s$": "ts-jest",
-    "^.+\\.vue$": "@vue/vue3-jest"
+    "^.+\\.(t|j)s$": "ts-jest"
   },
   "setupFilesAfterEnv": ["../jest.setup.ts"]
 }

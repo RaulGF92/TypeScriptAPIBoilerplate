@@ -21,6 +21,6 @@ export default class ApplicationTestLauncher {
     static get request() {
         const httpServer: HttpServer = <HttpServer> ApplicationTestLauncher.application
         .servers['httpServer'];
-        return request(httpServer.server);
+        return request.agent(httpServer.server);
     }
 }

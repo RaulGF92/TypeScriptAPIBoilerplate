@@ -56,4 +56,8 @@ export default class HttpServer implements Runnable {
         await closeWithPromise();
         this.server = undefined;
     }
+
+    get app() {
+        return this.koaApp;
+    }
 }
