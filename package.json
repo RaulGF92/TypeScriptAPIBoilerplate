@@ -5,6 +5,7 @@
   "main": "dist/src/index.js",
   "scripts": {
     "start": "node .",
+    "dev-start": "npm run build && npm run start",
     "build": "tsoa spec-and-routes && tsc",
     "generate-routes": "tsoa routes"
   },
