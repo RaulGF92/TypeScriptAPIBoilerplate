@@ -17,6 +17,15 @@ describe('application', () => {
         await application.stop();
     });
 
+    test('given a API we need to know the interface of our application', async () => {
+        const response = await ApplicationTestLauncher
+        .request.get('/openapi')
+        .expect(200)
+        .expect('Content-Type', /json/);
+
+        expect(response.body).toEqual(await import("../../tsoa/routes/swagger.json"));
+    });
+
     test('given a API client we need to know if server is alive', async () => {
         const response = await ApplicationTestLauncher
         .request.get('/hello-world')

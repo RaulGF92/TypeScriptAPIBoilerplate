@@ -4,7 +4,7 @@ import KoaRouter from "@koa/router";
 import koaLogger from "koa-logger";
 import json from "koa-json";
 import { IncomingMessage, Server, ServerResponse} from "http";
-import { RegisterRoutes } from "../../routes/routes";
+import { RegisterRoutes } from "../../tsoa/routes/routes";
 import logger from '../shared/Logger';
 
  const log = logger.child({layer: 'HttpServer'});

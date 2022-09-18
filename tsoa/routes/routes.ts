@@ -3,7 +3,9 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
   import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { HelloWorldController } from './../src/controllers/HelloWorldController';
+import { HelloWorldController } from './../../src/controllers/HelloWorldController';
+// WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+import { OpenApiController } from './../../src/controllers/OpenApiController';
 import type { Middleware } from 'koa';
 import * as KoaRouter from '@koa/router';
 
@@ -45,6 +47,29 @@ export function RegisterRoutes(router: KoaRouter) {
             const controller = new HelloWorldController();
 
             const promise = controller.getHelloWorld.apply(controller, validatedArgs as any);
+            return promiseHandler(controller, promise, context, undefined, undefined);
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        router.get('/openapi',
+            ...(fetchMiddlewares<Middleware>(OpenApiController)),
+            ...(fetchMiddlewares<Middleware>(OpenApiController.prototype.getDoc)),
+
+            async function OpenApiController_getDoc(context: any, next: any) {
+            const args = {
+            };
+
+            let validatedArgs: any[] = [];
+            try {
+              validatedArgs = getValidatedArgs(args, context, next);
+            } catch (err) {
+              const error = err as any;
+              context.status = error.status;
+              context.throw(error.status, JSON.stringify({ fields: error.fields }));
+            }
+
+            const controller = new OpenApiController();
+
+            const promise = controller.getDoc.apply(controller, validatedArgs as any);
             return promiseHandler(controller, promise, context, undefined, undefined);
         });
         // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
