@@ -1,4 +1,4 @@
-import Runable from "../shared/Runable";
+import Runnable from "../shared/Runnable";
 import Koa from "koa";
 import KoaRouter from "@koa/router";
 import koaLogger from "koa-logger";
@@ -9,7 +9,7 @@ import logger from '../shared/Logger';
 
  const log = logger.child({layer: 'HttpServer'});
 
-export default class HttpServer implements Runable {
+export default class HttpServer implements Runnable {
 
     private koaApp = new Koa();
     server: Server<typeof IncomingMessage, typeof ServerResponse> | undefined;

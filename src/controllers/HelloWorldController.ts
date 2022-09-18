@@ -4,7 +4,7 @@ import {
     Route,
 } from "tsoa";
 
-export interface HelloWorldDto {
+export type HelloWorldDto = {
     msg: string
 }
 
