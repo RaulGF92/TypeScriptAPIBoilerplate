@@ -1,11 +1,7 @@
 {
     "servers" : {
         "http" : {
-            "port" : 3000,
-            "swagger-ui": {
-                "enabled": "true",
-                "path": "/openapi/swagger"
-            }
+            "port" : 3000
         }
     }
 }

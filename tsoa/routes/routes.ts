@@ -6,6 +6,8 @@
 import { HelloWorldController } from './../../src/controllers/HelloWorldController';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { OpenApiController } from './../../src/controllers/OpenApiController';
+import { iocContainer } from './../ioc';
+import { IocContainer, IocContainerFactory } from '@tsoa/runtime';
 import type { Middleware } from 'koa';
 import * as KoaRouter from '@koa/router';
 
@@ -44,7 +46,12 @@ export function RegisterRoutes(router: KoaRouter) {
               context.throw(error.status, JSON.stringify({ fields: error.fields }));
             }
 
-            const controller = new HelloWorldController();
+            const container: IocContainer = typeof iocContainer === 'function' ? (iocContainer as IocContainerFactory)(context.request) : iocContainer;
+
+            const controller: any = await container.get<HelloWorldController>(HelloWorldController);
+            if (typeof controller['setStatus'] === 'function') {
+                controller.setStatus(undefined);
+            }
 
             const promise = controller.getHelloWorld.apply(controller, validatedArgs as any);
             return promiseHandler(controller, promise, context, undefined, undefined);
@@ -67,7 +74,12 @@ export function RegisterRoutes(router: KoaRouter) {
               context.throw(error.status, JSON.stringify({ fields: error.fields }));
             }
 
-            const controller = new OpenApiController();
+            const container: IocContainer = typeof iocContainer === 'function' ? (iocContainer as IocContainerFactory)(context.request) : iocContainer;
+
+            const controller: any = await container.get<OpenApiController>(OpenApiController);
+            if (typeof controller['setStatus'] === 'function') {
+                controller.setStatus(undefined);
+            }
 
             const promise = controller.getDoc.apply(controller, validatedArgs as any);
             return promiseHandler(controller, promise, context, undefined, undefined);

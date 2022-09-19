@@ -3,7 +3,9 @@ import {
     Get,
     Route,
 } from "tsoa";
+import { injectable } from "tsyringe";
 
+@injectable()
 @Route("openapi")
 export class OpenApiController extends Controller {
 

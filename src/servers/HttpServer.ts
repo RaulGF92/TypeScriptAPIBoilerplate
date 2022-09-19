@@ -7,9 +7,11 @@ import { IncomingMessage, Server, ServerResponse} from "http";
 import { RegisterRoutes } from "../../tsoa/routes/routes";
 import logger from '../shared/Logger';
 import config from "config";
+import { singleton } from "tsyringe";
 
  const log = logger.child({layer: 'HttpServer'});
 
+ @singleton()
 export default class HttpServer implements Runnable {
 
     private koaApp = new Koa();
