@@ -6,6 +6,7 @@ import json from "koa-json";
 import { IncomingMessage, Server, ServerResponse} from "http";
 import { RegisterRoutes } from "../../tsoa/routes/routes";
 import logger from '../shared/Logger';
+import config from "config";
 
  const log = logger.child({layer: 'HttpServer'});
 
@@ -30,7 +31,7 @@ export default class HttpServer implements Runnable {
     }
 
     async start(): Promise<void> {
-        const port = 3000;
+        const port = config.get<number>('servers.http.port');
         log.info(`[start] Starting Http Server in ${port}`);
         if(this.server) {
             log.warn(`[start] Previous server launched, trying stoped`);

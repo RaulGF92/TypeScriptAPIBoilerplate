@@ -8,6 +8,7 @@
     },
     "routes": {
       "routesDir": "tsoa/routes/",
-      "middleware": "koa"
+      "middleware": "koa",
+      "iocModule": "tsoa/ioc.ts"
     }
   }

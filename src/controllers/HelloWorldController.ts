@@ -3,11 +3,13 @@ import {
     Get,
     Route,
 } from "tsoa";
+import { injectable } from "tsyringe";
 
 export type HelloWorldDto = {
     msg: string
 }
 
+@injectable()
 @Route("hello-world")
 export class HelloWorldController extends Controller {
 

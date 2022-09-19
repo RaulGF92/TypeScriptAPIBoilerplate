@@ -1,1 +1,7 @@
-{}
+{
+    "servers" : {
+        "http" : {
+            "port" : "HTTP_SERVER_PORT"
+        }
+    }
+}
